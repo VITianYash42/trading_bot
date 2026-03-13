@@ -13,7 +13,7 @@ from rich.table import Table
 
 from bot.client import BinanceFuturesTestnetClient
 from bot.logging_config import LOG_FILE_PATH, configure_logging
-from bot.orders import OrderRequest, OrderService, OrderType
+from bot.orders import OrderPlacementError, OrderRequest, OrderService, OrderType
 from bot.validators import (
     ValidationError,
     normalize_symbol,
@@ -152,6 +152,10 @@ def place_order(
     except BinanceRequestException as exc:
         logger.exception("Binance request error: %s", exc)
         console.print(f"[bold red]Network/API Request Error:[/bold red] {exc}")
+        raise typer.Exit(code=1)
+    except OrderPlacementError as exc:
+        logger.exception("Order placement error: %s", exc)
+        console.print(f"[bold red]Order Placement Error:[/bold red] {exc}")
         raise typer.Exit(code=1)
     except requests.RequestException as exc:
         logger.exception("Network failure: %s", exc)

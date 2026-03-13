@@ -6,6 +6,8 @@ from decimal import Decimal, InvalidOperation
 from enum import Enum
 from typing import Any, Dict, Optional
 
+from binance.exceptions import BinanceAPIException, BinanceRequestException
+
 from .client import BinanceFuturesTestnetClient
 
 LOGGER = logging.getLogger(__name__)
@@ -66,15 +68,19 @@ class OrderService:
 
         try:
             response = self._client.create_order(**params)
+            resolved_order_id = response.get("orderId", response.get("algoId", 0))
+            resolved_status = response.get("status", response.get("algoStatus", "UNKNOWN"))
             result = OrderResult(
-                order_id=int(response.get("orderId", 0)),
-                status=str(response.get("status", "UNKNOWN")),
+                order_id=int(resolved_order_id),
+                status=str(resolved_status),
                 executed_qty=float(response.get("executedQty", 0.0)),
                 avg_price=self._extract_avg_price(response),
                 raw_response=response,
             )
             LOGGER.info("Order placed successfully: order_id=%s", result.order_id)
             return result
+        except (BinanceAPIException, BinanceRequestException):
+            raise
         except Exception as exc:  # Handled explicitly at CLI boundary.
             LOGGER.exception("Order placement failed: %s", exc)
             raise OrderPlacementError(str(exc)) from exc

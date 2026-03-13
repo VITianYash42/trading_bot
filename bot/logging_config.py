@@ -1,0 +1,31 @@
+from __future__ import annotations
+
+import logging
+from logging.handlers import RotatingFileHandler
+from pathlib import Path
+
+PROJECT_ROOT = Path(__file__).resolve().parent.parent
+LOG_FILE_PATH = PROJECT_ROOT / "bot_activity.log"
+
+
+def configure_logging(level: str = "INFO") -> None:
+    """Configure application logging to a rotating file."""
+    root_logger = logging.getLogger()
+    root_logger.setLevel(level.upper())
+
+    if root_logger.handlers:
+        root_logger.handlers.clear()
+
+    formatter = logging.Formatter(
+        "%(asctime)s | %(levelname)s | %(name)s | %(message)s",
+        datefmt="%Y-%m-%d %H:%M:%S",
+    )
+
+    file_handler = RotatingFileHandler(
+        LOG_FILE_PATH,
+        maxBytes=2 * 1024 * 1024,
+        backupCount=3,
+        encoding="utf-8",
+    )
+    file_handler.setFormatter(formatter)
+    root_logger.addHandler(file_handler)

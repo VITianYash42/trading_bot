@@ -1,0 +1,91 @@
+2026-03-13 18:52:46 | INFO | bot.client | Initialized Binance Futures testnet client with base URL https://testnet.binancefuture.com/fapi
+2026-03-13 18:52:46 | INFO | bot.client | Request: futures_ping
+2026-03-13 18:52:46 | INFO | bot.client | Response: futures_ping -> {}
+2026-03-13 18:52:46 | INFO | bot.client | Request: futures_exchange_info
+2026-03-13 18:52:46 | INFO | bot.client | Response: futures_exchange_info received
+2026-03-13 18:52:46 | INFO | bot.client | Request: futures_create_order payload={'symbol': 'BTCUSDT', 'side': 'BUY', 'type': 'MARKET', 'quantity': '0.001'}
+2026-03-13 18:52:47 | ERROR | bot.orders | Order placement failed: APIError(code=-4164): Order's notional must be no smaller than 100 (unless you choose reduce only).
+Traceback (most recent call last):
+  File "C:\Users\Yash Singhal\OneDrive\Desktop\trading-bot\trading_bot\bot\orders.py", line 68, in place_order
+    response = self._client.create_order(**params)
+  File "C:\Users\Yash Singhal\OneDrive\Desktop\trading-bot\trading_bot\bot\client.py", line 74, in create_order
+    response = self._client.futures_create_order(**order_params)
+  File "C:\Users\Yash Singhal\AppData\Local\Programs\Python\Python313\Lib\site-packages\binance\client.py", line 7951, in futures_create_order
+    return self._request_futures_api("post", "order", True, data=params)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Yash Singhal\AppData\Local\Programs\Python\Python313\Lib\site-packages\binance\client.py", line 144, in _request_futures_api
+    return self._request(method, uri, signed, force_params, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Yash Singhal\AppData\Local\Programs\Python\Python313\Lib\site-packages\binance\client.py", line 107, in _request
+    return self._handle_response(self.response)
+           ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "C:\Users\Yash Singhal\AppData\Local\Programs\Python\Python313\Lib\site-packages\binance\client.py", line 116, in _handle_response
+    raise BinanceAPIException(response, response.status_code, response.text)
+binance.exceptions.BinanceAPIException: APIError(code=-4164): Order's notional must be no smaller than 100 (unless you choose reduce only).
+2026-03-13 18:52:47 | ERROR | __main__ | Unexpected error: APIError(code=-4164): Order's notional must be no smaller than 100 (unless you choose reduce only).
+Traceback (most recent call last):
+  File "C:\Users\Yash Singhal\OneDrive\Desktop\trading-bot\trading_bot\bot\orders.py", line 68, in place_order
+    response = self._client.create_order(**params)
+  File "C:\Users\Yash Singhal\OneDrive\Desktop\trading-bot\trading_bot\bot\client.py", line 74, in create_order
+    response = self._client.futures_create_order(**order_params)
+  File "C:\Users\Yash Singhal\AppData\Local\Programs\Python\Python313\Lib\site-packages\binance\client.py", line 7951, in futures_create_order
+    return self._request_futures_api("post", "order", True, data=params)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Yash Singhal\AppData\Local\Programs\Python\Python313\Lib\site-packages\binance\client.py", line 144, in _request_futures_api
+    return self._request(method, uri, signed, force_params, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Yash Singhal\AppData\Local\Programs\Python\Python313\Lib\site-packages\binance\client.py", line 107, in _request
+    return self._handle_response(self.response)
+           ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "C:\Users\Yash Singhal\AppData\Local\Programs\Python\Python313\Lib\site-packages\binance\client.py", line 116, in _handle_response
+    raise BinanceAPIException(response, response.status_code, response.text)
+binance.exceptions.BinanceAPIException: APIError(code=-4164): Order's notional must be no smaller than 100 (unless you choose reduce only).
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\Yash Singhal\OneDrive\Desktop\trading-bot\trading_bot\cli.py", line 135, in place_order
+    order_result = order_service.place_order(order_request)
+  File "C:\Users\Yash Singhal\OneDrive\Desktop\trading-bot\trading_bot\bot\orders.py", line 80, in place_order
+    raise OrderPlacementError(str(exc)) from exc
+bot.orders.OrderPlacementError: APIError(code=-4164): Order's notional must be no smaller than 100 (unless you choose reduce only).
+2026-03-13 18:53:29 | INFO | bot.client | Initialized Binance Futures testnet client with base URL https://testnet.binancefuture.com/fapi
+2026-03-13 18:53:29 | INFO | bot.client | Request: futures_ping
+2026-03-13 18:53:29 | INFO | bot.client | Response: futures_ping -> {}
+2026-03-13 18:53:29 | INFO | bot.client | Request: futures_exchange_info
+2026-03-13 18:53:30 | INFO | bot.client | Response: futures_exchange_info received
+2026-03-13 18:53:30 | INFO | bot.client | Request: futures_create_order payload={'symbol': 'BTCUSDT', 'side': 'BUY', 'type': 'MARKET', 'quantity': '0.005'}
+2026-03-13 18:53:30 | INFO | bot.client | Response: futures_create_order -> {'orderId': 12788452669, 'symbol': 'BTCUSDT', 'status': 'NEW', 'clientOrderId': 'x-Cb7ytekJe1b2eb7cbc9090323f6366', 'price': '0.00', 'avgPrice': '0.00', 'origQty': '0.005', 'executedQty': '0.000', 'cumQty': '0.000', 'cumQuote': '0.00000', 'timeInForce': 'GTC', 'type': 'MARKET', 'reduceOnly': False, 'closePosition': False, 'side': 'BUY', 'positionSide': 'BOTH', 'stopPrice': '0.00', 'workingType': 'CONTRACT_PRICE', 'priceProtect': False, 'origType': 'MARKET', 'priceMatch': 'NONE', 'selfTradePreventionMode': 'EXPIRE_MAKER', 'goodTillDate': 0, 'updateTime': 1773408210225}
+2026-03-13 18:53:30 | INFO | bot.orders | Order placed successfully: order_id=12788452669
+2026-03-13 18:53:39 | INFO | bot.client | Initialized Binance Futures testnet client with base URL https://testnet.binancefuture.com/fapi
+2026-03-13 18:53:39 | INFO | bot.client | Request: futures_ping
+2026-03-13 18:53:39 | INFO | bot.client | Response: futures_ping -> {}
+2026-03-13 18:53:39 | INFO | bot.client | Request: futures_exchange_info
+2026-03-13 18:53:39 | INFO | bot.client | Response: futures_exchange_info received
+2026-03-13 18:53:39 | INFO | bot.client | Request: futures_create_order payload={'symbol': 'BTCUSDT', 'side': 'SELL', 'type': 'LIMIT', 'quantity': '0.005', 'timeInForce': 'GTC', 'price': '80000.0'}
+2026-03-13 18:53:40 | INFO | bot.client | Response: futures_create_order -> {'orderId': 12788454920, 'symbol': 'BTCUSDT', 'status': 'NEW', 'clientOrderId': 'x-Cb7ytekJb206e861a1282c14bd60aa', 'price': '80000.00', 'avgPrice': '0.00', 'origQty': '0.005', 'executedQty': '0.000', 'cumQty': '0.000', 'cumQuote': '0.00000', 'timeInForce': 'GTC', 'type': 'LIMIT', 'reduceOnly': False, 'closePosition': False, 'side': 'SELL', 'positionSide': 'BOTH', 'stopPrice': '0.00', 'workingType': 'CONTRACT_PRICE', 'priceProtect': False, 'origType': 'LIMIT', 'priceMatch': 'NONE', 'selfTradePreventionMode': 'EXPIRE_MAKER', 'goodTillDate': 0, 'updateTime': 1773408220451}
+2026-03-13 18:53:40 | INFO | bot.orders | Order placed successfully: order_id=12788454920
+2026-03-13 19:12:53 | INFO | bot.client | Initialized Binance Futures testnet client with base URL https://testnet.binancefuture.com/fapi
+2026-03-13 19:12:53 | INFO | bot.client | Request: futures_ping
+2026-03-13 19:12:54 | INFO | bot.client | Response: futures_ping -> {}
+2026-03-13 19:12:54 | INFO | bot.client | Request: futures_exchange_info
+2026-03-13 19:12:54 | INFO | bot.client | Response: futures_exchange_info received
+2026-03-13 19:12:54 | INFO | bot.client | Request: futures_create_order payload={'symbol': 'BTCUSDT', 'side': 'BUY', 'type': 'MARKET', 'quantity': '0.005'}
+2026-03-13 19:12:54 | INFO | bot.client | Response: futures_create_order -> {'orderId': 12788751834, 'symbol': 'BTCUSDT', 'status': 'NEW', 'clientOrderId': 'x-Cb7ytekJ6b32b79b1d8ce617c7ea2c', 'price': '0.00', 'avgPrice': '0.00', 'origQty': '0.005', 'executedQty': '0.000', 'cumQty': '0.000', 'cumQuote': '0.00000', 'timeInForce': 'GTC', 'type': 'MARKET', 'reduceOnly': False, 'closePosition': False, 'side': 'BUY', 'positionSide': 'BOTH', 'stopPrice': '0.00', 'workingType': 'CONTRACT_PRICE', 'priceProtect': False, 'origType': 'MARKET', 'priceMatch': 'NONE', 'selfTradePreventionMode': 'EXPIRE_MAKER', 'goodTillDate': 0, 'updateTime': 1773409374783}
+2026-03-13 19:12:54 | INFO | bot.orders | Order placed successfully: order_id=12788751834
+2026-03-13 19:15:01 | INFO | bot.client | Initialized Binance Futures testnet client with base URL https://testnet.binancefuture.com/fapi
+2026-03-13 19:15:01 | INFO | bot.client | Request: futures_ping
+2026-03-13 19:15:02 | INFO | bot.client | Response: futures_ping -> {}
+2026-03-13 19:15:02 | INFO | bot.client | Request: futures_exchange_info
+2026-03-13 19:15:02 | INFO | bot.client | Response: futures_exchange_info received
+2026-03-13 19:15:02 | INFO | bot.client | Request: futures_create_order payload={'symbol': 'BTCUSDT', 'side': 'SELL', 'type': 'LIMIT', 'quantity': '0.005', 'timeInForce': 'GTC', 'price': '80000.0'}
+2026-03-13 19:15:02 | INFO | bot.client | Response: futures_create_order -> {'orderId': 12788784954, 'symbol': 'BTCUSDT', 'status': 'NEW', 'clientOrderId': 'x-Cb7ytekJ6c88cc1f4ac4ab1f6cef0a', 'price': '80000.00', 'avgPrice': '0.00', 'origQty': '0.005', 'executedQty': '0.000', 'cumQty': '0.000', 'cumQuote': '0.00000', 'timeInForce': 'GTC', 'type': 'LIMIT', 'reduceOnly': False, 'closePosition': False, 'side': 'SELL', 'positionSide': 'BOTH', 'stopPrice': '0.00', 'workingType': 'CONTRACT_PRICE', 'priceProtect': False, 'origType': 'LIMIT', 'priceMatch': 'NONE', 'selfTradePreventionMode': 'EXPIRE_MAKER', 'goodTillDate': 0, 'updateTime': 1773409502899}
+2026-03-13 19:15:02 | INFO | bot.orders | Order placed successfully: order_id=12788784954
+2026-03-13 19:15:07 | INFO | bot.client | Initialized Binance Futures testnet client with base URL https://testnet.binancefuture.com/fapi
+2026-03-13 19:15:07 | INFO | bot.client | Request: futures_ping
+2026-03-13 19:15:08 | INFO | bot.client | Response: futures_ping -> {}
+2026-03-13 19:15:08 | INFO | bot.client | Request: futures_exchange_info
+2026-03-13 19:15:08 | INFO | bot.client | Response: futures_exchange_info received
+2026-03-13 19:15:08 | INFO | bot.client | Request: futures_create_order payload={'symbol': 'BTCUSDT', 'side': 'SELL', 'type': 'STOP_MARKET', 'quantity': '0.005', 'stopPrice': '60000.0'}
+2026-03-13 19:15:08 | INFO | bot.client | Response: futures_create_order -> {'algoId': 1000000024538702, 'clientAlgoId': 'x-Cb7ytekJ3b4d5b743c236e9e6f61fa', 'algoType': 'CONDITIONAL', 'orderType': 'STOP_MARKET', 'symbol': 'BTCUSDT', 'side': 'SELL', 'positionSide': 'BOTH', 'timeInForce': 'GTC', 'quantity': '0.005', 'algoStatus': 'NEW', 'triggerPrice': '60000.00', 'price': '0.00', 'icebergQuantity': None, 'selfTradePreventionMode': 'EXPIRE_MAKER', 'workingType': 'CONTRACT_PRICE', 'priceMatch': 'NONE', 'closePosition': False, 'priceProtect': False, 'reduceOnly': False, 'createTime': 1773409508595, 'updateTime': 1773409508595, 'triggerTime': 0, 'goodTillDate': 0}
+2026-03-13 19:15:08 | INFO | bot.orders | Order placed successfully: order_id=0

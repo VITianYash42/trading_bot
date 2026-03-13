@@ -89,3 +89,27 @@ bot.orders.OrderPlacementError: APIError(code=-4164): Order's notional must be n
 2026-03-13 19:15:08 | INFO | bot.client | Request: futures_create_order payload={'symbol': 'BTCUSDT', 'side': 'SELL', 'type': 'STOP_MARKET', 'quantity': '0.005', 'stopPrice': '60000.0'}
 2026-03-13 19:15:08 | INFO | bot.client | Response: futures_create_order -> {'algoId': 1000000024538702, 'clientAlgoId': 'x-Cb7ytekJ3b4d5b743c236e9e6f61fa', 'algoType': 'CONDITIONAL', 'orderType': 'STOP_MARKET', 'symbol': 'BTCUSDT', 'side': 'SELL', 'positionSide': 'BOTH', 'timeInForce': 'GTC', 'quantity': '0.005', 'algoStatus': 'NEW', 'triggerPrice': '60000.00', 'price': '0.00', 'icebergQuantity': None, 'selfTradePreventionMode': 'EXPIRE_MAKER', 'workingType': 'CONTRACT_PRICE', 'priceMatch': 'NONE', 'closePosition': False, 'priceProtect': False, 'reduceOnly': False, 'createTime': 1773409508595, 'updateTime': 1773409508595, 'triggerTime': 0, 'goodTillDate': 0}
 2026-03-13 19:15:08 | INFO | bot.orders | Order placed successfully: order_id=0
+2026-03-13 19:24:39 | INFO | bot.client | Initialized Binance Futures testnet client with base URL https://testnet.binancefuture.com/fapi
+2026-03-13 19:24:39 | INFO | bot.client | Request: futures_ping
+2026-03-13 19:24:39 | INFO | bot.client | Response: futures_ping -> {}
+2026-03-13 19:24:39 | INFO | bot.client | Request: futures_exchange_info
+2026-03-13 19:24:40 | INFO | bot.client | Response: futures_exchange_info received
+2026-03-13 19:24:40 | INFO | bot.client | Request: futures_create_order payload={'symbol': 'BTCUSDT', 'side': 'BUY', 'type': 'MARKET', 'quantity': '0.005'}
+2026-03-13 19:24:40 | INFO | bot.client | Response: futures_create_order -> {'orderId': 12788935089, 'symbol': 'BTCUSDT', 'status': 'NEW', 'clientOrderId': 'x-Cb7ytekJb69cc1269b61fcfb73150a', 'price': '0.00', 'avgPrice': '0.00', 'origQty': '0.005', 'executedQty': '0.000', 'cumQty': '0.000', 'cumQuote': '0.00000', 'timeInForce': 'GTC', 'type': 'MARKET', 'reduceOnly': False, 'closePosition': False, 'side': 'BUY', 'positionSide': 'BOTH', 'stopPrice': '0.00', 'workingType': 'CONTRACT_PRICE', 'priceProtect': False, 'origType': 'MARKET', 'priceMatch': 'NONE', 'selfTradePreventionMode': 'EXPIRE_MAKER', 'goodTillDate': 0, 'updateTime': 1773410080231}
+2026-03-13 19:24:40 | INFO | bot.orders | Order placed successfully: order_id=12788935089
+2026-03-13 19:24:46 | INFO | bot.client | Initialized Binance Futures testnet client with base URL https://testnet.binancefuture.com/fapi
+2026-03-13 19:24:46 | INFO | bot.client | Request: futures_ping
+2026-03-13 19:24:47 | INFO | bot.client | Response: futures_ping -> {}
+2026-03-13 19:24:47 | INFO | bot.client | Request: futures_exchange_info
+2026-03-13 19:24:47 | INFO | bot.client | Response: futures_exchange_info received
+2026-03-13 19:24:47 | INFO | bot.client | Request: futures_create_order payload={'symbol': 'BTCUSDT', 'side': 'SELL', 'type': 'LIMIT', 'quantity': '0.005', 'timeInForce': 'GTC', 'price': '80000.0'}
+2026-03-13 19:24:47 | INFO | bot.client | Response: futures_create_order -> {'orderId': 12788936769, 'symbol': 'BTCUSDT', 'status': 'NEW', 'clientOrderId': 'x-Cb7ytekJ80c7cfb9bc72dc25a41', 'price': '80000.00', 'avgPrice': '0.00', 'origQty': '0.005', 'executedQty': '0.000', 'cumQty': '0.000', 'cumQuote': '0.00000', 'timeInForce': 'GTC', 'type': 'LIMIT', 'reduceOnly': False, 'closePosition': False, 'side': 'SELL', 'positionSide': 'BOTH', 'stopPrice': '0.00', 'workingType': 'CONTRACT_PRICE', 'priceProtect': False, 'origType': 'LIMIT', 'priceMatch': 'NONE', 'selfTradePreventionMode': 'EXPIRE_MAKER', 'goodTillDate': 0, 'updateTime': 1773410087835}
+2026-03-13 19:24:47 | INFO | bot.orders | Order placed successfully: order_id=12788936769
+2026-03-13 19:24:51 | INFO | bot.client | Initialized Binance Futures testnet client with base URL https://testnet.binancefuture.com/fapi
+2026-03-13 19:24:51 | INFO | bot.client | Request: futures_ping
+2026-03-13 19:24:54 | INFO | bot.client | Response: futures_ping -> {}
+2026-03-13 19:24:54 | INFO | bot.client | Request: futures_exchange_info
+2026-03-13 19:24:54 | INFO | bot.client | Response: futures_exchange_info received
+2026-03-13 19:24:54 | INFO | bot.client | Request: futures_create_order payload={'symbol': 'BTCUSDT', 'side': 'SELL', 'type': 'STOP_MARKET', 'quantity': '0.005', 'stopPrice': '60000.0'}
+2026-03-13 19:24:54 | INFO | bot.client | Response: futures_create_order -> {'algoId': 1000000024542881, 'clientAlgoId': 'x-Cb7ytekJa039ba32088f26d8193bf1', 'algoType': 'CONDITIONAL', 'orderType': 'STOP_MARKET', 'symbol': 'BTCUSDT', 'side': 'SELL', 'positionSide': 'BOTH', 'timeInForce': 'GTC', 'quantity': '0.005', 'algoStatus': 'NEW', 'triggerPrice': '60000.00', 'price': '0.00', 'icebergQuantity': None, 'selfTradePreventionMode': 'EXPIRE_MAKER', 'workingType': 'CONTRACT_PRICE', 'priceMatch': 'NONE', 'closePosition': False, 'priceProtect': False, 'reduceOnly': False, 'createTime': 1773410094902, 'updateTime': 1773410094902, 'triggerTime': 0, 'goodTillDate': 0}
+2026-03-13 19:24:54 | INFO | bot.orders | Order placed successfully: order_id=0
